@@ -1,0 +1,58 @@
+@font-face {
+  font-family: 'IbmVga8';
+  src:  url('ibm_vga8.woff2') format('woff2');
+}
+
+html {
+    background-color: #202020;
+}
+
+body {
+  background-color: #202020;
+  font-family: 'IbmVga8';
+  color: #E0E0E0;
+  padding: 1em 3em 0 3em;
+  font-size: 1.3em;
+}
+
+a {
+  color: #8080FF;
+  text-decoration: none;
+}
+a:hover {
+  color: #B0B0FF;
+}
+h1 {
+  font-weight: normal;
+  font-size: 3em;
+  color: #FFFF00;
+  padding-top: 0.5em;
+  text-align: center;
+}
+h2 {
+  font-weight: normal;
+  color: #FFFF00;
+}
+
+.menu-link {
+  text-align: center;
+}
+
+.buttons {
+  margin: 0 auto 1.2em auto;
+  width: 10em;
+}
+.button-zoom {
+  cursor: pointer;
+  padding: 2.1em 0.8em 0.8em 0.8em;
+  background-color: #A0A0A0;
+  margin: 0 0.5em 0 0.5em;
+}
+.button-zoom img {
+  height: 2em;
+}
+
+div.footer {
+  height: 15em;
+}
+
