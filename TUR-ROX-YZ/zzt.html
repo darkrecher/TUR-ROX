@@ -7,6 +7,23 @@
   <title>TUR-ROX</title>
   <link href="../css_and_fonts/style.css" rel="stylesheet" type="text/css">
 
+  <style type="text/css">
+    #zeta_canvas {
+      height: 100%;
+      display: block;
+      image-rendering: pixelated;
+      margin: auto;
+    }
+    .zoom-buttons {
+      text-align: center;
+      padding-bottom: 0.5em;
+    }
+    .zoom-buttons > button {
+      font-size: 1.5em;
+      padding: 0.1em 0.4em 0.1em 0.4em;
+    }
+  </style>
+
 </head>
 
 <body>
@@ -14,19 +31,69 @@
   <div>
     <span> / </span>
     <a href="../index.html">Page principale /</a>
-    <span>Énigmes /</span>
-    <a href="main.html">TUR-ROX-YZ /</a>
+    <a href="main.html">énigme TUR-ROX-YZ /</a>
   </div>
-  <br>
 
   <h1>Jouer dans votre navigateur</h1>
 
-  <p>
-    Re Bla.
-    <br><br>
-    TODO : rédiger ce todo.
-  </p>
+  <div class="zoom-buttons">
+    <button onclick="zoomIn()">+</button>
+    <button onclick="zoomOut()">-</button>
+  </div>
+  <canvas id="zeta_canvas" width="640" height="350" style="width: 70%;"></canvas>
+  <br>
 
+  <script type="text/javascript" src="./zeta_loader.js"></script>
+  <script type="text/javascript">
+
+  // https://museumofzzt.com/article/view/490/page/2/zzt-to-the-masses-publishing-to-the-museum-and-itchio/
+  // https://zeta.asie.pl/
+  ZetaLoad({
+    render: {
+      canvas: document.getElementById("zeta_canvas")
+    },
+    storage: {
+      type: "auto",
+      database: "tur_rox_yz"
+    },
+    path: "./",
+    arg: "THCON21.ZZT",
+    files: [
+      {
+        "type": "zip",
+        "url": "zzt.zip",
+        "filenameMapper": function(f) {
+          let fl = f.toLowerCase();
+          return fl.startsWith("zzt.") ? f : null;
+        }
+      },
+      {
+        "type": "zip",
+        "url": "my_game.zip"
+      }
+    ]
+  });
+
+  let glob_width = 70;
+
+  function setZoom() {
+    let zeta_canvas = document.getElementById("zeta_canvas");
+    zeta_canvas.style = "width: " + glob_width + "%";
+  }
+  function zoomIn() {
+    if (glob_width < 100) {
+      glob_width += 10;
+      setZoom();
+    }
+  };
+  function zoomOut() {
+    if (glob_width > 10) {
+      glob_width -= 10;
+      setZoom();
+    }
+  };
+
+  </script>
 </body>
 
 </html>
