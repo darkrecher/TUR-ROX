@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>atto</title>
+        <meta charset="utf-8">
+        <meta name="description" content="The new BASIC computer that runs in your browser!">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="application-name" content="atto - code ur dreams">
+        <meta name="theme-color" content="#ffffff">
+        <meta property="og:title" content="atto - code ur dreams">
+        <meta property="og:image" content="https://atto.devicefuture.org/media/cover.png">
+        <meta property="og:image:type" content="image/png">
+        <link rel="icon" href="media/logo.png">
+        <link rel="manifest" href="manifest.webmanifest">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="style.css">
+        <script src="lib/showdown.min.js"></script>
+        <script src="lib/base2048.js"></script>
+        <script src="lib/tone.js"></script>
+        <script src="lib/peerjs.min.js"></script>
+        <script src="supportcheck.js"></script>
+        <script type="module" src="script.js"></script>
+        <script src="docs.js"></script>
+        <script>
+            // Réchèr's note. Seriously, guy...
+            function whyYouCrapifyAllTheLinks1() {
+                document.location.href = "/index.html";
+            }
+            function whyYouCrapifyAllTheLinks2() {
+                document.location.href = "main.html";
+            }
+        </script>
+    </head>
+    <body>
+
+        <div>
+          <span> / </span>
+          <a href="javascript:whyYouCrapifyAllTheLinks1();">Page principale /</a>
+          <a href="javascript:whyYouCrapifyAllTheLinks2();">TUR-ROX-BASIC /</a>
+        </div>
+
+        <canvas hidden></canvas>
+        <div id="hidLog"></div>
+        <div aria-live="polite" tabindex="-1" id="hidLive"></div>
+        <input autocapitalize="off" autocomplete="off" id="hidInput">
+        <input hidden id="hidCopy">
+        <div hidden id="docs">
+            <div id="docsButtons">
+                <button onclick="toggleDocumentation();" aria-label="Close help guide" title="Close help guide">
+                    <img src="media/icons/close.svg">
+                </button>
+                <button onclick="visitDocumentation('docs/index.md');" aria-label="Visit guide home" title="Visit guide home">
+                    <img src="media/icons/home.svg">
+                </button>
+                <button onclick="popOutDocumentation();" aria-label="Pop out guide into new tab" title="Pop out guide into new tab">
+                    <img src="media/icons/popout.svg">
+                </button>
+            </div>
+            <div id="docsContent"></div>
+        </div>
+        <div hidden>
+            <a id="fileExporter"></a>
+            <input type="file" accept=".atto" id="fileImporter">
+        </div>
+    </body>
+</html>
