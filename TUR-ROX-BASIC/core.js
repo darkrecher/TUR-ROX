@@ -17,12 +17,13 @@ export function getParameter(name) {
 // Le "help" sera expliqué dans le code source.
 
 // TODO :
-// map sur 35 * 15
-// couverts et point de départ
-// check du couvert et du y
+// X map sur 35 * 15
+// X couverts et point de départ
+// X check du couvert et du y
+// message qui donne le code si c'est bon, et masquage du "maybe good object"
 // message à la fin du code source pour dire où trouver le code source.
-// message parchemin et squarity
-// messages d'erreur pour le début.
+// X message parchemin et squarity
+// X messages d'erreur pour le début.
 // décors dans la map.
 // voices random.
 
@@ -37,19 +38,19 @@ export function getParameter(name) {
 80 rem Classical chars are defined on 1 byte, emojis are defined on 2 bytes.
 90 rem Everything would be messed if area_lines was a list of string.
 100 push split("/.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.\\\\", "."), area_lines
-110 push split("|. . . . .a. . . . . . . . .a. . . . . . . . .a. .🍴. . . . . . . . .|", "."), area_lines
-120 push split("|.1.💩.3.4.5.6.🍴.8.9.0.1.💩.3.4.5.6.7.8.9.0.1.💩.3.4.5.6.7.8.9.a.b.c.d.|", "."), area_lines
-130 push split("|. . . . . . . . . . . . . .a. . .🍴. . . . . .a. . . . . . . . . . .|", "."), area_lines
-140 push split("|. . . . .📜. . . . . . .🍴. .z.p.l.o.p. . . . . .z.p.l.o.p. . . . . .|", "."), area_lines
-150 push split("|. .🍴. . . . . . . . . . . .a. . . . . . . . .a. . . . . . . . . . .|", "."), area_lines
-160 push split("|. . . . . . . . . . . . . .a. . . . . .🍴. . .a. . . . . . . . . . .|", "."), area_lines
-170 push split("|. .🟩. . .a. . . . . . . . .a. . . . . . . . .a. . . . . . . . .🍴. .|", "."), area_lines
-180 push split("|. . . . .🍴. . . . . . . . .a. . . . . . . . .a. . . . . . . . . . .|", "."), area_lines
-190 push split("|. . . . .a. . . . . . . . .a. . . . . . . . .a. . . . . . . . . . .|", "."), area_lines
-200 push split("|. . . . .a. . . .🍴. . . . .a. . . . . . . . .a. . . . . . . . . . .|", "."), area_lines
-210 push split("|. . . . .a. . . . . . . . .a. . . . . . . . .a. . . . .🍴. . . . . .|", "."), area_lines
-220 push split("|. . . . .a. . . . . . . . .a. .🍴. . . . . . .a. . . . . . . . . . .|", "."), area_lines
-230 push split("|. . . . .a. . . . . . . . .a. . .4. . . . . .a.🍴. . . . . . . . . .|", "."), area_lines
+110 push split("|. . . . . . . . . . . . . . . . . . . . . . . . .🍴. . . . . . . . .|", "."), area_lines
+120 push split("|. .💩. . . . .🍴. . . . .💩. . . . . . . . . .💩. . . . . .🍴. . . . . .|", "."), area_lines
+130 push split("|. . . . . . . . . . . . . . . . .🍴. . . . . . . . . . . . . . . . .|", "."), area_lines
+140 push split("|. . . . .📜. . . . . . .🍴. . .p.l.o.p. . . . . .z.p.l.o.p. . . . . .|", "."), area_lines
+150 push split("|. .🍴. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .|", "."), area_lines
+160 push split("|. . . . . . . . . . . . . . . . . . . .🍴. . . . . . . . . . . . . .|", "."), area_lines
+170 push split("|. .🟩. . . . . . . . . . . . . . . . . . . . . . . . . . . . . .🍴. .|", "."), area_lines
+180 push split("|. . . . .🍴. . . . . . . . . . . . . . . . . . . . . . . . . . . . .|", "."), area_lines
+190 push split("|. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .|", "."), area_lines
+200 push split("|. . . . . . . . .🍴. . . . . . . . . . . . . . . . . . . . . . . . .|", "."), area_lines
+210 push split("|. . . . . . . . . . . . . . . . . . . . . . . . . . . .🍴. . . . . .|", "."), area_lines
+220 push split("|. . . . . . . . . . . . . . . .🍴. . . . . . . . . . . . . . . . . .|", "."), area_lines
+230 push split("|. . . . . . . . . . . . . . . . . . . . . . . .🍴. . . . . . . . . .|", "."), area_lines
 240 push split("\\\\.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-./", "."), area_lines
 250 message_1$ = ""
 260 message_2$ = ""
@@ -91,10 +92,10 @@ export function getParameter(name) {
 12020     message_2$ = ""
 12030     message_3$ = ""
 12040     if first_action% = 1
-12050         input "Type any text, then press Enter :", action$
+12050         input "Type any text, then press Enter:", action$
 12060         first_action% = 0
 12070     else
-12080         input "Type the game action you want to do :", action$
+12080         input "Type the game action you want to do:", action$
 12090     end
 12100     if len(action$) != 1
 12110         message_1$ = "All the game actions are only one"
@@ -157,29 +158,98 @@ export function getParameter(name) {
 14000 rem Define the 3 variables message_x$ according to the search action.
 14010     line = area_lines[tramp_y%]
 14020     tramp_pos$ = line[tramp_x%]
-14030     if tramp_pos$ = "🟩"
-14040         message_1$ = "Shameless auto-promotion:"
-14050         message_2$ = "create nice games in python,"
-14060         message_3$ = "go to http://squarity.fr"
-14070     else if tramp_pos$ = "📜"
-14080         message_1$ = "To say a random thing, type \\"v\\"."
-14090         message_2$ = "To quit the game, type \\"q\\"."
-14100         message_3$ = "You should quit the game."
-14110     else if tramp_pos$ = "🍴"
-14120         message_2$ = "Maybe it's the good object."
-14130         gosub 15000
-14140  rem   else
-14150  rem       message_2$ = "You find nothing"
-14160     end
-14170 return
+14030     found_object% = 0
+14040     if tramp_pos$ = "🟩"
+14050         message_1$ = "Shameless auto-promotion:"
+14060         message_2$ = "create nice games in python,"
+14070         message_3$ = "go to http://squarity.fr"
+14080         found_object% = 1
+14090     else if tramp_pos$ = "📜"
+14100         message_1$ = "To say a random thing, type \\"v\\"."
+14110         message_2$ = "To quit the game, type \\"q\\"."
+14120         message_3$ = "You should quit the game."
+14130         found_object% = 1
+14140     else if tramp_pos$ = "🍴"
+14150         found_object% = 1
+14160         message_2$ = "Maybe it's the good object."
+14170         gosub 15000
+14180         if all_checks_ok% = 1
+14190             message_2$ = "You find the good object !!"
+14200         end
+14210     end
+14220     if found_object% = 0
+14230         message_2$ = "You find nothing"
+14240     end
+14250 return
 14999 rem -------------------------------------------
-15000 rem Check if it's the good coordinates.
-15010     if tramp_y% = 2
-15020         message_2$ = "It is the good object !"
-15030     end
-15040 return
+15000 rem Check if it's the good Y coordinate.
+15010     all_checks_ok% = 1
+15020     val_to_check% = tramp_y%
+15030     gosub 16000
+15040     if secret_check% = 0
+15050         all_checks_ok% = 0
+15060     end
+15070     if all_checks_ok% = 1
+15071         rem print "check first prime ok"
+15080         param% = tramp_y%
+15090         gosub 17000
+15100         if tramp_y% = result%
+15110             all_checks_ok% = 0
+15120         end
+15130     end
+15140     if all_checks_ok% = 1
+15141         rem print "check sum digit ok"
+15150         val_to_check% = result%
+15151         rem print "val_to_check: " ; val_to_check%
+15160         gosub 16000
+15161         rem print "secret_check: " ; secret_check%
+15170         if secret_check% = 0
+15180             all_checks_ok% = 0
+15190         end
+15200     end
+15201     rem print "bye"
+15210 return
+15999 rem -------------------------------------------
+16000 rem Secret check
+16010     secret_check% = 1
+16020     for i = 2 to val_to_check%-1
+16030         if (i < val_to_check%) and (val_to_check% mod i) = 0
+16040             secret_check% = 0
+16050         end
+16060     next
+16070 return
+16999 rem -------------------------------------------
+17000 rem Secret operation
+17010     result% = 0
+17020     repeat
+17030         result% = result% + (param% mod 10)
+17040         param% = param% div 10
+17050     while param% > 0
+17060 return
 
 `
+
+/*
+290 val_to_check% = 6
+300 gosub 16000
+310 print "val:" ; val_to_check% ; " resultat secret check :" ; secret_check%
+320 print ""
+330 param% = 0
+340 gosub 17000
+350 print "param:" ; param% ; " resultat secret op :" ; result%
+
+360 print ""
+370 tramp_y% = 11
+390 gosub 15000
+400 print "tramp: " ; tramp_y% ; " resultat all check: " ; all_checks_ok%
+1370 for j = 1 to 14
+1380     tramp_y% = j
+1390     gosub 15000
+1400     print "tramp: " ; tramp_y% ; " resultat all check: " ; all_checks_ok%
+1410 next
+rem 1560 stop
+1450 tramp_y% = 2
+*/
 
 
     }
