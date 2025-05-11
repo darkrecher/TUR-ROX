@@ -20,15 +20,15 @@ export function getParameter(name) {
 // X map sur 35 * 15
 // X couverts et point de départ
 // X check du couvert et du y
-// message qui donne le code si c'est bon, et masquage du "maybe good object"
-// message à la fin du code source pour dire où trouver le code source.
+// X message qui donne le code si c'est bon, et masquage du "maybe good object"
+// X message à la fin du code source pour dire où trouver le code source.
 // X message parchemin et squarity
 // X messages d'erreur pour le début.
 // décors dans la map.
-// voices random.
+// X voices random.
 
         return `5 rem TUR-ROX-BASE, the tramp game.
-10 rem Va voir dans core.js !!
+10 rem -------------------------------------------
 20 tramp_x% = 4
 30 tramp_y% = 2
 40 area_w% = 35
@@ -39,30 +39,36 @@ export function getParameter(name) {
 90 rem Everything would be messed if area_lines was a list of string.
 100 push split("/.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.\\\\", "."), area_lines
 110 push split("|. . . . . . . . . . . . . . . . . . . . . . . . .🍴. . . . . . . . .|", "."), area_lines
-120 push split("|. .💩. . . . .🍴. . . . .💩. . . . . . . . . .💩. . . . . .🍴. . . . . .|", "."), area_lines
+120 push split("|. .💩. . . . .🍴. . . . .💩. . . . . . . . . .💩. . . . .🍴. . . . . . .|", "."), area_lines
 130 push split("|. . . . . . . . . . . . . . . . .🍴. . . . . . . . . . . . . . . . .|", "."), area_lines
 140 push split("|. . . . .📜. . . . . . .🍴. . .p.l.o.p. . . . . .z.p.l.o.p. . . . . .|", "."), area_lines
 150 push split("|. .🍴. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .|", "."), area_lines
 160 push split("|. . . . . . . . . . . . . . . . . . . .🍴. . . . . . . . . . . . . .|", "."), area_lines
 170 push split("|. .🟩. . . . . . . . . . . . . . . . . . . . . . . . . . . . . .🍴. .|", "."), area_lines
-180 push split("|. . . . .🍴. . . . . . . . . . . . . . . . . . . . . . . . . . . . .|", "."), area_lines
+180 push split("|. . . . . . . . . . . . . . .🍴. . . . . . . . . . . . . . . . . . .|", "."), area_lines
 190 push split("|. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .|", "."), area_lines
 200 push split("|. . . . . . . . .🍴. . . . . . . . . . . . . . . . . . . . . . . . .|", "."), area_lines
 210 push split("|. . . . . . . . . . . . . . . . . . . . . . . . . . . .🍴. . . . . .|", "."), area_lines
-220 push split("|. . . . . . . . . . . . . . . .🍴. . . . . . . . . . . . . . . . . .|", "."), area_lines
+220 push split("|. . . . . . . . . .🍴. . . . . . . . . . . . . . . . . . . . . . . .|", "."), area_lines
 230 push split("|. . . . . . . . . . . . . . . . . . . . . . . .🍴. . . . . . . . . .|", "."), area_lines
 240 push split("\\\\.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-./", "."), area_lines
-250 message_1$ = ""
-260 message_2$ = ""
-270 message_3$ = ""
-280 first_action% = 1
+250 dim voices
+260 push "Aye search everything.", voices
+270 push "Aye am a professional tramp.", voices
+280 push "You are the contrary of the contrary of the person that would not want to become the person you would not want to become.", voices
+290 push "For a tramp, a handkerchief can be a gift.", voices
+300 push "Ha ha ha ! ... Ha ha ha ! ... Ha ha ha ! ... Ha ha ha ha ha ha ha ha !", voices
+310 push "Let's hope you will find the good object.", voices
+320 message_1$ = ""
+330 message_2$ = ""
+340 message_3$ = ""
+350 first_action% = 1
 2000 rem -------------------------------------------
 2010 repeat
-2020 rem    cls
-2030     gosub 10000
-2040     gosub 12000
-2050 loop
-99999 rem -------------------------------------------
+2020     gosub 10000
+2030     gosub 12000
+2040 loop
+9999 rem -------------------------------------------
 10000 rem Displays the game area and the current message.
 10010     cls
 10020     bg "rgb", 20, 20, 20
@@ -147,13 +153,17 @@ export function getParameter(name) {
 13380         rem A little harsh to quit like that, but who cares ?
 13390         action_ok% = 1
 13400         stop
-13410     end
-13420     if action_ok% = 0
-13430         message_1$ = "To move, type \\"8\\", \\"6\\", \\"5\\" or \\"4\\"."
-13440         message_2$ = "To search on your position, type \\"s\\"."
-13450         message_3$ = "Find the object that gives the code."
-13460     end
-13570 return
+13410     else if action$ = "v"
+13420         choice% = floor(random*6)
+13430         speak voices[choice%]
+13600         action_ok% = 1
+13610     end
+13620     if action_ok% = 0
+13630         message_1$ = "To move, type \\"8\\", \\"6\\", \\"5\\" or \\"4\\"."
+13640         message_2$ = "To search on your position, type \\"s\\"."
+13650         message_3$ = "Find the object that gives the code."
+13660     end
+13670 return
 13999 rem -------------------------------------------
 14000 rem Define the 3 variables message_x$ according to the search action.
 14010     line = area_lines[tramp_y%]
@@ -171,10 +181,12 @@ export function getParameter(name) {
 14130         found_object% = 1
 14140     else if tramp_pos$ = "🍴"
 14150         found_object% = 1
-14160         message_2$ = "Maybe it's the good object."
+14160         message_2$ = "You find nothing"
 14170         gosub 15000
 14180         if all_checks_ok% = 1
-14190             message_2$ = "You find the good object !!"
+14190             message_1$ = "Yay! You found the good object!"
+14195             message_2$ = "The secret code is: TUR-ROX{" ; (tramp_y% * 100 + tramp_x%) ; "}"
+14196             speak "Congratulations !"
 14200         end
 14210     end
 14220     if found_object% = 0
@@ -226,8 +238,13 @@ export function getParameter(name) {
 17040         param% = param% div 10
 17050     while param% > 0
 17060 return
+99995 rem -------------------------------------------
+99996 a=" The url to this source code "
+99997 a=" can be shown by executing   "
+99998 a=" the instruction:            "
+99999 a=" print b                     "
 
-`
+` + "1 b=\"" + window.location.origin + "/TUR-ROX-BASIC/core.js\""
 
 /*
 290 val_to_check% = 6
