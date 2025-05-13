@@ -1,0 +1,123 @@
+<html>
+    <head>
+        <script>
+
+async function downloadAndEncryptFile(url, keyData, iv) {
+    // Step 1: Download clear file as ArrayBuffer
+    const response = await fetch(url);
+    if (!response.ok) throw new Error('Failed to download');
+    const clearBuffer = await response.arrayBuffer();
+
+    // Step 2: Import key
+    const key = await window.crypto.subtle.importKey(
+        "raw",
+        keyData,
+        { name: "AES-GCM" },
+        false,
+        ["encrypt"]
+    );
+
+    // Step 3: Encrypt
+    const encryptedBuffer = await window.crypto.subtle.encrypt(
+        {
+            name: "AES-GCM",
+            iv: iv
+        },
+        key,
+        clearBuffer
+    );
+
+    // Step 4: Download encrypted file
+    const encryptedBlob = new Blob([encryptedBuffer]);
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(encryptedBlob);
+    a.download = "encrypted_file.bin"; // Change as you like
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+}
+
+// USAGE EXAMPLE (replace with your values):
+//const url = "https://www.example.com/path/to/your/file.txt";
+const url = "clear_file.txt"
+
+// 32-byte key (256 bits); use 16 bytes for AES-128, 24 for AES-192 as needed
+const keyData = new Uint8Array([
+    0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
+    0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F,
+    0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17,
+    0x18, 0x19, 0x1A, 0x1B, 0x1C, 0x1D, 0x1E, 0x1F
+]);
+// 12-byte IV (recommended for GCM)
+const iv = new Uint8Array([
+    0x01, 0x23, 0x45, 0x67, 0x89, 0xab, 0xcd, 0xef,
+    0xfe, 0xdc, 0xba, 0x98
+]);
+
+const keyData2 = new Uint8Array([
+    0x00, 0x10, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
+    0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F,
+    0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17,
+    0x18, 0x19, 0x1A, 0x1B, 0x1C, 0x1D, 0x1E, 0x1F
+]);
+
+console.log("paf");
+// Call the function!
+// downloadAndEncryptFile(url, keyData, iv);
+
+// -----------------------------------------
+
+// Your cipher key and IV (Uint8Array or from CryptoKey as needed)
+//const keyData = new Uint8Array([/* your key bytes here, 16/24/32 bytes for AES-128/192/256 */]);
+//const iv = new Uint8Array([/* your 12/16-byte IV used during encryption */]);
+
+// Step 1: Download the ciphered file as ArrayBuffer
+async function downloadFile(url) {
+  let response = await fetch(url);
+  if (!response.ok) throw new Error('Download failed');
+  return await response.arrayBuffer();
+}
+
+// Step 2: Import the cipher key
+async function importKey(keyData) {
+  return await crypto.subtle.importKey(
+    "raw", keyData, "AES-GCM", false, ["decrypt"]
+  );
+}
+
+// Step 3: Decrypt
+async function decryptFile(encrypted, key, iv) {
+  let decrypted = await crypto.subtle.decrypt(
+    {name: "AES-GCM", iv: iv},
+    key,
+    encrypted
+  );
+  return decrypted; // As ArrayBuffer
+}
+
+// Full example
+async function downloadAndDecrypt(url, keyData, iv) {
+  const encrypted = await downloadFile(url);
+  const key = await importKey(keyData);
+  const decrypted = await decryptFile(encrypted, key, iv);
+  // e.g., download the decrypted data as a file:
+  const blob = new Blob([decrypted]);
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'decrypted_file.dat';
+  a.click();
+}
+
+// Usage:
+// downloadAndDecrypt('https://example.com/encryptedfile', keyData, iv);
+
+        </script>
+    </head>
+    <body>
+        <button onclick="downloadAndEncryptFile(url, keyData, iv)">test cipher</button>
+        <br>
+        <button onclick="downloadAndDecrypt('encrypted_file.bin', keyData, iv)">test decipher</button>
+        <br>
+        <button onclick="downloadAndDecrypt('encrypted_file.bin', keyData2, iv)">test decipher beurk</button>
+    </body>
+</html>
