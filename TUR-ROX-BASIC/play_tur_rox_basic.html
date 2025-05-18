@@ -30,10 +30,24 @@
                 document.location.href = "main.html";
             }
         </script>
+        <style>
+            @font-face {
+                font-family: 'IbmVga8';
+                src:  url('../css_and_fonts/ibm_vga8.woff2') format('woff2');
+            }
+            .breadcrumb span, .breadcrumb a {
+                font-family: 'IbmVga8';
+                font-size: 1.3em;
+            }
+            .breadcrumb a {
+                color: #8080FF;
+
+            }
+        </style>
     </head>
     <body>
 
-        <div>
+        <div class="breadcrumb">
           <span> / </span>
           <a href="javascript:whyYouCrapifyAllTheLinks1();">Page principale /</a>
           <a href="javascript:whyYouCrapifyAllTheLinks2();">TUR-ROX-BASIC /</a>

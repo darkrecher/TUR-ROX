@@ -201,12 +201,14 @@ export function getParameter(name) {
 15999 rem -------------------------------------------
 16000 rem Secret check
 16010     secret_check% = 1
-16020     for i = 2 to val_to_check%-1
-16030         if (i < val_to_check%) and (val_to_check% mod i) = 0
-16040             secret_check% = 0
-16050         end
-16060     next
-16070 return
+16020     if val_to_check% > 2
+16030         for i = 2 to val_to_check%-1
+16040             if val_to_check% mod i = 0
+16050                 secret_check% = 0
+16060             end
+16070         next
+16080     end
+16090 return
 16999 rem -------------------------------------------
 17000 rem Secret operation
 17010     result% = 0
