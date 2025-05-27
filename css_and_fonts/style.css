@@ -16,7 +16,7 @@ body {
 }
 
 b {
-  color: #FFFF00;
+  color: #DFDF00;
 }
 
 a {
@@ -29,12 +29,12 @@ a:hover {
 h1 {
   font-weight: normal;
   font-size: 3em;
-  color: #FFFF00;
+  color: #DFDF00;
   text-align: center;
 }
 h2 {
   font-weight: normal;
-  color: #FFFF00;
+  color: #DFDF00;
 }
 
 .menu-link {
