@@ -8,7 +8,7 @@ export function getParameter(name) {
         // Sinon, ça ne se rafraîchit pas correctement et vous aurez toujours l'ancien code
         // (je ne sais pas pourquoi).
         //
-        // Vous pouvez aussi modifier le code directement dans le terminal de code.
+        // Vous pouvez aussi modifier le code directement dans le terminal atto.
         // Vous avez lu la doc et vous savez comment faire, n'est-ce pas ?
 
         return `5 rem TUR-ROX-BASIC, the tramp game.
@@ -143,7 +143,7 @@ export function getParameter(name) {
 13460     if action_ok% = 0
 13470         message_1$ = "To move, type \\"8\\", \\"6\\", \\"5\\" or \\"4\\"."
 13480         message_2$ = "To search on your position, type \\"s\\"."
-13490         message_3$ = "Find the object that gives the code."
+13490         message_3$ = "A special object gives the password."
 13500     end
 13510 return
 13999 rem -------------------------------------------
