@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <link href="../css_and_fonts/style.css" rel="stylesheet" type="text/css">
+        <script src="code.js"></script>
+        <script>
+            function decrypt() {
+                tryPassword(
+                    document.getElementById('urlSource').value,
+                    document.getElementById('password').value,
+                    document.getElementById('tryResult'),
+                    document.getElementById('fileNameResult').value,
+                );
+            }
+
+            function encrypt() {
+                downloadAndEncryptFile(
+                    document.getElementById('urlSource').value,
+                    document.getElementById('password').value,
+                    document.getElementById('fileNameResult').value,
+                );
+            }
+        </script>
+    </head>
+    <body>
+        Url : <input type="text" id="urlSource">
+        <br>
+        Mot de passe : <input type="text" id="password">
+        <br>
+        Nom du fichier r&eacute;sultat : <input type="text" id="fileNameResult">
+        <br><br>
+        <button onclick="encrypt()">chiffrer un fichier</button>
+        <br>
+        <button onclick="decrypt()">d&eacute;chiffrer un fichier</button>
+        <br><br>
+        <div id="tryResult">
+          Pouet
+        </div>
+    </body>
+</html>
