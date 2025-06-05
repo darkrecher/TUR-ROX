@@ -89,7 +89,7 @@ async function tryPassword(url, password, divResult, fileNameResult) {
 
     clearInterval(intervIdUpdateWaiting);
     if (passwordOK) {
-        divResult.innerHTML = '<span class="password-success">:-) :-) :-) !!</span><br>';
+        divResult.innerHTML = '<span class="password-success">Bravo !! :-) :-) :-)</span><br>';
         elemA.innerHTML = "T&eacute;l&eacute;charger la solution";
         divResult.appendChild(elemA);
     } else {
