@@ -11,6 +11,19 @@ export function getParameter(name) {
         // Vous pouvez aussi modifier le code directement dans le terminal atto.
         // Vous avez lu la doc et vous savez comment faire, n'est-ce pas ?
 
+        // ------------------------
+
+        // If you're reading this, you've found the game code. Congratulations!
+        // It's thrown into the atto code terminal in a bit of a hurry.
+        //
+        // If you launch the site locally and modify the code in this file,
+        // remember to reload the page in a private browser tab.
+        // Otherwise, it won't refresh properly and you'll still have the old code
+        // (I don't know why).
+                //
+        // You can also modify the code directly in the atto terminal.
+        // You've read the docs and you know how to do it, don't you?
+
         return `5 rem TUR-ROX-BASIC, the tramp game.
 10 rem -------------------------------------------
 20 tramp_x% = 4
@@ -37,12 +50,12 @@ export function getParameter(name) {
 230 push split("|. . . . . . . . . . . . . . . .🦴. . . . . . . . . . . . .🫗. . .🍴. .|", "."), area_lines
 240 push split("\\\\.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-./", "."), area_lines
 250 dim voices
-260 push "Aye search everything.", voices
+260 push "Do you find my voice funny? Do you want to imitate it?", voices
 270 push "Aye am a professional tramp.", voices
 280 push "You are the contrary of the contrary of the person that would not want to become the person you would not want to become.", voices
 290 push "For a tramp, a handkerchief can be a gift.", voices
 300 push "Ha ha ha ! ... Ha ha ha ! ... Ha ha ha ! ... Ha ha ha ha ha ha ha ha !", voices
-310 push "Let's hope you will find the good object.", voices
+310 push "Let's hope you will lead me to the good object.", voices
 320 message_1$ = ""
 330 message_2$ = ""
 340 message_3$ = ""
@@ -117,7 +130,7 @@ export function getParameter(name) {
 13200         action_ok% = 1
 13210     else if action$ = "q"
 13220         print "**********************************"
-13230         print "Quitting the game. Bye !"
+13230         print "Quitting the game. Bye!"
 13240         print "You are now in the BASIC console."
 13250         print ""
 13260         print "Type the command ";
@@ -132,7 +145,7 @@ export function getParameter(name) {
 13350         print "list"
 13360         fg "rgb", 255, 255, 255
 13370         print "to get the source code of the game."
-13380         rem A little harsh to quit like that, but who cares ?
+13380         rem A little harsh to quit like that, but who cares?
 13390         action_ok% = 1
 13400         stop
 13410     else if action$ = "v"
