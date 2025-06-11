@@ -3,16 +3,21 @@
   src:  url('ibm_vga8.woff2') format('woff2');
 }
 
+@font-face {
+  font-family: 'Ubuntu';
+  src:  url('Ubuntu-L.ttf')
+}
+
 html {
     background-color: #202020;
 }
 
 body {
   background-color: #202020;
-  font-family: 'IbmVga8';
-  color: #cfcfcf;
+  font-family: 'Ubuntu';
+  color: #efefef;
   padding: 1em 3em 0 3em;
-  font-size: 1.3em;
+  font-size: 1.5em;
 }
 
 b {
@@ -27,6 +32,7 @@ a:hover {
   color: #B0B0FF;
 }
 h1 {
+  font-family: 'IbmVga8';
   font-weight: normal;
   font-size: 3em;
   color: #DFDF00;
@@ -41,10 +47,13 @@ h2 {
   text-align: center;
 }
 
+.breadcrumb {
+  font-family: 'IbmVga8';
+}
+
 .quote {
   text-align: center;
 }
-
 
 .buttons {
   margin: 0 auto 1.2em auto;
@@ -60,7 +69,22 @@ h2 {
   height: 2em;
 }
 
-div.footer {
-  height: 15em;
+.progress-bar {
+  line-height: 1em;
+  font-family: 'IbmVga8';
+}
+
+.enigma-password {
+  font-family: 'IbmVga8';
+}
+
+.enigma-password input {
+  font-family: 'IbmVga8';
+  font-size: 1.1em;
+}
+
+.enigma-password button {
+  font-family: 'IbmVga8';
+  font-size: 1.1em;
 }
 

@@ -20,7 +20,7 @@ export function getParameter(name) {
         // remember to reload the page in a private browser tab.
         // Otherwise, it won't refresh properly and you'll still have the old code
         // (I don't know why).
-                //
+        //
         // You can also modify the code directly in the atto terminal.
         // You've read the docs and you know how to do it, don't you?
 
