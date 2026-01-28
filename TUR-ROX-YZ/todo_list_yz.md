@@ -5,8 +5,8 @@ Pour la release de l'énigme TUR-ROX-YZ.
 ## Dans le jeu ZZT
 
  - Changer le nom du world (j'espère que c'est faisable). Faut que ce soit TUR-ROX-YZ, ou TURROXYZ.
- - Board de présentation : remplacer le H par une bouteille verte.
- - Board de présentation : Enlever la référence à la THCON.
+ X Board de présentation : remplacer le H par une bouteille verte.
+ X Board de présentation : Enlever la référence à la THCON.
  - Board 1 : Indiquer TUR-ROX{Z... } comme flag.
  - Board flow-chart : Ajouter cet url turrox.neocities.org/TUR-ROX-YZ/manual.html en-dessous de celle de apocalyptech.
  - Enlever /zeta dans museumofzzt.com (on expliquera ça dès le début, et c'est optionnel, puisqu'on peut jouer dans le navigateur)
