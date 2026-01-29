@@ -4,10 +4,10 @@ Pour la release de l'énigme TUR-ROX-YZ.
 
 ## Dans le jeu ZZT
 
- - Changer le nom du world (j'espère que c'est faisable). Faut que ce soit TUR-ROX-YZ, ou TURROXYZ.
+ X Changer le nom du world (j'espère que c'est faisable). Faut que ce soit TUR-ROX-YZ, ou TURROXYZ.
  X Board de présentation : remplacer le H par une bouteille verte.
  X Board de présentation : Enlever la référence à la THCON.
- - Board 1 : Indiquer TUR-ROX{Z... } comme flag.
+ X Board 1 : Indiquer TUR-ROX{Z... } comme flag.
  - Board flow-chart : Ajouter cet url turrox.neocities.org/TUR-ROX-YZ/manual.html en-dessous de celle de apocalyptech.
  - Enlever /zeta dans museumofzzt.com (on expliquera ça dès le début, et c'est optionnel, puisqu'on peut jouer dans le navigateur)
  - Board flow-chart : Ajouter une clé verte.
@@ -17,7 +17,7 @@ Pour la release de l'énigme TUR-ROX-YZ.
  - Board vert du python 3.x. Changer le début du flag.
  - Board de présentation : ajouter un personnage en haut du board, derrière une porte avec une clé bleue. Et on donne pas de clé bleue.
  - Board de présentation : le personnage Hinter doit aussi dire un truc du genre : "for example, you could add a blue key just next to your character".
- - Board de présentation : le personnage en haut du board explique des trucs par rapport au board jaune. On explique que l'énigme est découpé en 3 sous-énigmes. Une verte, une rouge, une bleue. La verte est la plus dure, vaut mieux commencer par les deux autres.
+ - Board de présentation : le personnage en haut du board explique des trucs par rapport au board jaune. On explique que l'énigme est découpée en 3 sous-énigmes. Une verte, une rouge, une bleue. La verte est la plus dure, vaut mieux commencer par les deux autres.
 
 ## Dans le code PuzzleScript (intégré dans le jeu ZZT)
 
@@ -32,6 +32,7 @@ Pour la release de l'énigme TUR-ROX-YZ.
 
 ## Dans tout ce qu'il y a autour
 
+ - margin ou padding mal foutu, et le jeu peut pas prendre toute la largeur.
  - Expliquer comment démarrer une partie, car pas super évident.
  - Mettre le fichier .zzt en téléchargement, pour faire ce qu'on veut avec.
  - Ajouter une page avec le manual de apocalyptech

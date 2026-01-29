@@ -13,6 +13,7 @@
       display: block;
       image-rendering: pixelated;
       margin: auto;
+      color: transparent;
     }
     .zoom-buttons {
       text-align: center;
@@ -34,7 +35,7 @@
     <a href="main.html">énigme TUR-ROX-YZ /</a>
   </div>
 
-  <h1>Jouer dans votre navigateur</h1>
+  <h1>ZZT</h1>
 
   TODO : blabla télécharger les fichiers, comment installer sur son PC, etc.
 
@@ -59,7 +60,7 @@
       database: "tur_rox_yz"
     },
     path: "./",
-    arg: "THCON21.ZZT",
+    arg: "TURROXYZ.ZZT",
     files: [
       {
         "type": "zip",
@@ -83,7 +84,7 @@
     zeta_canvas.style = "width: " + glob_width + "%";
   }
   function zoomIn() {
-    if (glob_width < 100) {
+    if (glob_width <= 100) {
       glob_width += 10;
       setZoom();
     }
