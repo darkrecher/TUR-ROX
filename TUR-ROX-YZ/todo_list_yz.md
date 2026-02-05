@@ -21,13 +21,13 @@ Pour la release de l'énigme TUR-ROX-YZ.
 
 ## Dans le code PuzzleScript (intégré dans le jeu ZZT)
 
- - Remplacer le début du flag par "TUR-ROX", dans les messages du jeu.
+ X Remplacer le début du flag par "TUR-ROX", dans les messages du jeu.
  X Vérifier qu'il n'y a pas d'autres référence à la THCON dans le jeu puzzlescript.
- - Retrouver comment j'intégrais le code PuzzleScript dans le jeu
-   - vérifier que ça marche toujours, y compris avec un jeu ayant déjà le code PuzzleScript
-   - Documenter un peu comment lancer ce script.
- - Regénérer le hash et le mettre dans le jeu (il y a 2 endroits où se trouve ce hash)
- - Et du coup : retrouver comment je re-extrayais le code PZS du jeu. (Ce bout de code devra être présent uniquement dans la solution)
+ X Retrouver comment j'intégrais le code PuzzleScript dans le jeu
+   X vérifier que ça marche toujours, y compris avec un jeu ayant déjà le code PuzzleScript
+   X Documenter un peu comment lancer ce script.
+ X Regénérer le hash et le mettre dans le jeu (il y a 1 seul endroit où se trouve ce hash, ainsi que le morceau du flag)
+ X Et du coup : retrouver comment je re-extrayais le code PZS du jeu. (Ce bout de code devra être présent uniquement dans la solution)
 
 
 ## Dans tout ce qu'il y a autour

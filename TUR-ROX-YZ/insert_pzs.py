@@ -1,13 +1,5 @@
 """
-This code will not work on your computer !!
-
-I use it to insert the PuzzleScript code inside the file TURROXYZ.ZZT.
-But you don't have the PuzzleScript code.
-
-That's part of the enigma. You have to do the reverse operation.
-You have to extract the PuzzleScript code from TURROXYZ.ZZT.
-
-You can get inspiration from this script.
+You can get inspiration from this script, to extract the PuzzleScript code.
 
 You need to install the library Pillow to execute it.
 You also need the library zookeeper, in the same directory as this script.
@@ -19,16 +11,40 @@ I versioned it in my repository, and you can also get it here :
 https://github.com/DrDos0016/zookeeper/tree/master
 """
 
+FAIL_TEXT = """
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+This code will not work on your computer.
+
+I use it to insert the PuzzleScript code inside the file TURROXYZ.ZZT.
+But you don't have the PuzzleScript code.
+
+That's part of the enigma. You have to do the reverse operation.
+You have to extract the PuzzleScript code from TURROXYZ.ZZT.
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+"""
+
 import random
+import zipfile
 
 # I'm a dirty guy and I don't care
 import sys
 sys.path.append("zookeeper/")
-import zookeeper.zookeeper
+try:
+    import zookeeper.zookeeper
+except:
+    print(FAIL_TEXT)
+    raise
 
 
-# You don't have this file name. I'm so sad for you...
+# Dear enigma searcher,
+# you don't have this file name. I'm so sad for you...
 PUZZLE_SCRIPT_CODE_FILE_NAME = "../../turrox_drafts/solutions/solution_tur-rox-yz/turrox_pzscript.txt"
+
+ZZT_FILE_START = "my_game/TURROXYZ.ZZT"
+ZZT_FILE_TEMP = "TURROXYZ.ZZT"
+ZIP_FILE_FINAL = "my_game.zip"
+
+
 NB_LINES_CODE_PAGE = 19
 LINE_LENGTH_SMALL_CODE_PAGE = 26
 LINE_LENGTH_LARGE_CODE_PAGE = 56
@@ -66,10 +82,15 @@ random.seed("Une agitation bien inutile n'est-ce pas ?")
 
 
 def compute_pzs_code_pages(puzzle_script_code_file_name):
-    pzs_code = open(puzzle_script_code_file_name, "r", encoding="ascii").read()
-    # Liste de tuple de 2 elem.
-    # - boolean. SIZE_SMALL ou SIZE_LARGE
-    # - liste de string : les lignes de code.
+    try:
+        pzs_code = open(puzzle_script_code_file_name, "r", encoding="ascii").read()
+    except:
+        print(FAIL_TEXT)
+        raise
+
+    # List of tuple with 2 elems.
+    # - boolean. SIZE_SMALL or SIZE_LARGE
+    # - list with strings : the code lines
     code_pages = []
     pzs_code_lines = pzs_code.split("\n")
     while pzs_code_lines:
@@ -102,7 +123,8 @@ def write_code_page_on_board(board, coord_page, page_lines, padding_width):
     for y, line in enumerate(page_lines, y_start):
         line = line.ljust(padding_width)
         for x, char in enumerate(line, x_start):
-            # Y'a pas l'index 6, car cet index est du blanc sur noir, et c'est pas assez dégueux.
+            # There is no 6th index, because this index is white on black,
+            # and that's not visually ugly enough.
             color_index = random.randrange(6)
             text_infos = TEXT_COLOR_AND_IDS[color_index]
             color_id = text_infos["color_id"]
@@ -161,10 +183,16 @@ def iter_on_small_code_pages(small_boards):
         )
 
 
+# Source - https://stackoverflow.com/a/1855118 Posted by Mark Byers
+def make_zip_file():
+    with zipfile.ZipFile(ZIP_FILE_FINAL, 'w', zipfile.ZIP_DEFLATED) as zipf:
+        #zipdir('tmp/', zipf)
+        zipf.write(ZZT_FILE_TEMP, ZZT_FILE_TEMP)
+
+
 def main():
     code_pages = compute_pzs_code_pages(PUZZLE_SCRIPT_CODE_FILE_NAME)
-    # TODO : ça dans une constante au début.
-    z = zookeeper.zookeeper.Zookeeper("my_game/TURROXYZ.ZZT")
+    z = zookeeper.zookeeper.Zookeeper(ZZT_FILE_START)
     large_boards = []
     small_boards = []
     for board in z.boards:
@@ -195,184 +223,14 @@ def main():
         write_code_page_on_board(board, (page_x, page_y), code_lines, line_length)
         write_index_label_on_board(board, (index_label_x, index_label_y), page_index)
 
-    # TODO : put the file in my_game.zip
-    z.save("THCON21M.ZZT")
+    # Save the ZZT file in a temporary file
+    z.save(ZZT_FILE_TEMP)
+    # Put the file in my_game.zip
+    make_zip_file()
+    z.close_file()
+    print("It is done. If the file in the .zip is ok,")
+    print("You should move manually TURROXYZ.ZZT to my_game/TURROXYZ.ZZT.")
 
 
 if __name__ == "__main__":
     main()
-
-"""
-char :             C
-background :       3
-background_name :  Dark Cyan
-character :        67
-color_id :         63
-color_name :       White on Dark Cyan
-foreground :       15
-foreground_name :  White
-id :               49
-name :             Cyan Text
-oop_name :
-stat :             None
-stat_idx :         None
-tile :             304
-"""
-
-
-"""
-----------------------------------------
-char :             ²
-background :       0
-background_name :  Black
-character :        178
-color_id :         14
-color_name :       Yellow
-foreground :       14
-foreground_name :  Yellow
-id :               22
-name :             Normal Wall
-oop_name :         normal
-stat :             None
-stat_idx :         None
-tile :             300
---------------------
-char :             º
-background :       0
-background_name :  Black
-character :        186
-color_id :         11
-color_name :       Cyan
-foreground :       11
-foreground_name :  Cyan
-id :               31
-name :             Line Wall
-oop_name :         line
-stat :             None
-stat_idx :         None
-tile :             301
---------------------
-char :             A
-background :       1
-background_name :  Dark Blue
-character :        65
-color_id :         31
-color_name :       White on Dark Blue
-foreground :       15
-foreground_name :  White
-id :               47
-name :             Blue Text
-oop_name :
-stat :             None
-stat_idx :         None
-tile :             302
---------------------
-char :             B
-background :       2
-background_name :  Dark Green
-character :        66
-color_id :         47
-color_name :       White on Dark Green
-foreground :       15
-foreground_name :  White
-id :               48
-name :             Green Text
-oop_name :
-stat :             None
-stat_idx :         None
-tile :             303
---------------------
-char :             C
-background :       3
-background_name :  Dark Cyan
-character :        67
-color_id :         63
-color_name :       White on Dark Cyan
-foreground :       15
-foreground_name :  White
-id :               49
-name :             Cyan Text
-oop_name :
-stat :             None
-stat_idx :         None
-tile :             304
---------------------
-char :             D
-background :       4
-background_name :  Dark Red
-character :        68
-color_id :         79
-color_name :       White on Dark Red
-foreground :       15
-foreground_name :  White
-id :               50
-name :             Red Text
-oop_name :
-stat :             None
-stat_idx :         None
-tile :             305
---------------------
-char :             E
-background :       5
-background_name :  Dark Purple
-character :        69
-color_id :         95
-color_name :       White on Dark Purple
-foreground :       15
-foreground_name :  White
-id :               51
-name :             Purple Text
-oop_name :
-stat :             None
-stat_idx :         None
-tile :             306
---------------------
-char :             F
-background :       6
-background_name :  Dark Yellow
-character :        70
-color_id :         111
-color_name :       White on Dark Yellow
-foreground :       15
-foreground_name :  White
-id :               52
-name :             Yellow Text
-oop_name :
-stat :             None
-stat_idx :         None
-tile :             307
---------------------
-char :             G
-background :       0
-background_name :  Black
-character :        71
-color_id :         15
-color_name :       White
-foreground :       15
-foreground_name :  White
-id :               53
-name :             White Text
-oop_name :
-stat :             None
-stat_idx :         None
-tile :             308
---------------------
-char :
-background :       7
-background_name :  Gray
-character :        32
-color_id :         122
-color_name :       Green on Gray
-foreground :       10
-foreground_name :  Green
-id :               0
-name :             Empty
-oop_name :         empty
-stat :             None
-stat_idx :         None
-tile :             309
---------------------
-²ºABCDEFG    2                                            º
-
-
-"""
