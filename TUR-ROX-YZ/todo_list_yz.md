@@ -9,10 +9,10 @@ Pour la release de l'énigme TUR-ROX-YZ.
  X Board de présentation : Enlever la référence à la THCON.
  X Board 1 : Indiquer TUR-ROX{Z... } comme flag.
  - Board flow-chart : Ajouter cet url turrox.neocities.org/TUR-ROX-YZ/manual.html en-dessous de celle de apocalyptech.
- - Enlever /zeta dans museumofzzt.com (on expliquera ça dès le début, et c'est optionnel, puisqu'on peut jouer dans le navigateur)
- - Board flow-chart : Ajouter une clé verte.
- - Board bleu : Ajouter un chemin vers la droite en bas, avec une porte verte.
- - Board de présentation : Ajouter un tout petit chemin vers le bas.
+ X Enlever /zeta dans museumofzzt.com (on expliquera ça dès le début, et c'est optionnel, puisqu'on peut jouer dans le navigateur)
+ X Board flow-chart : Ajouter une clé verte.
+ X Board bleu : Ajouter un chemin vers la droite en bas, avec une porte verte.
+ X Board de présentation : Ajouter un tout petit chemin vers le bas.
  - Ajouter un nouveau board, avec des équivalences entre les liens externes et les trucs que j'aurais mis en local. (En particulier PuzzleScript).
  - Board vert du python 3.x. Changer le début du flag.
  - Board de présentation : ajouter un personnage en haut du board, derrière une porte avec une clé bleue. Et on donne pas de clé bleue.
