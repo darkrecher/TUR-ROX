@@ -14,10 +14,10 @@ Pour la release de l'énigme TUR-ROX-YZ.
  X Board bleu : Ajouter un chemin vers la droite en bas, avec une porte verte.
  X Board de présentation : Ajouter un tout petit chemin vers le bas.
  X Ajouter un nouveau board, avec des équivalences entre les liens externes et les trucs que j'aurais mis en local. (En particulier PuzzleScript).
- - Board vert du python 3.x. Changer le début du flag.
- - Board de présentation : ajouter un personnage en haut du board, derrière une porte avec une clé bleue. Et on donne pas de clé bleue.
- - Board de présentation : le personnage Hinter doit aussi dire un truc du genre : "for example, you could add a blue key just next to your character".
- - Board de présentation : le personnage en haut du board explique des trucs par rapport au board jaune. On explique que l'énigme est découpée en 3 sous-énigmes. Une verte, une rouge, une bleue. La verte est la plus dure, vaut mieux commencer par les deux autres.
+ X Board vert du python 3.x. Changer le début du flag.
+ X Board de présentation : ajouter un personnage en haut du board, derrière une porte avec une clé bleue. Et on donne pas de clé bleue.
+ X Board de présentation : le personnage Hinter doit aussi dire un truc du genre : "for example, you could add a blue key just next to your character".
+ X Board de présentation : le personnage en haut du board explique des trucs par rapport au board jaune. On explique que l'énigme est découpée en 3 sous-énigmes. Une verte, une rouge, une bleue. La verte est la plus dure, vaut mieux commencer par les deux autres.
 
 ## Dans le code PuzzleScript (intégré dans le jeu ZZT)
 
@@ -32,8 +32,8 @@ Pour la release de l'énigme TUR-ROX-YZ.
 
 ## Dans tout ce qu'il y a autour
 
- - margin ou padding mal foutu, et le jeu peut pas prendre toute la largeur.
- - Expliquer comment démarrer une partie, car pas super évident.
+ X margin ou padding mal foutu, et le jeu peut pas prendre toute la largeur.
+ X Expliquer comment démarrer une partie, car pas super évident.
  - Expliquer qu'on peut télécharger le .zip, avec le .zzt, et ça permet de faire ce qu'on veut avec.
  - Ajouter une page avec le manual de apocalyptech
  - Ajouter une page un peu secrète avec le repo github de zookeeper.
