@@ -34,16 +34,16 @@ Pour la release de l'énigme TUR-ROX-YZ.
 
  X margin ou padding mal foutu, et le jeu peut pas prendre toute la largeur.
  X Expliquer comment démarrer une partie, car pas super évident.
- - Expliquer qu'on peut télécharger le .zip, avec le .zzt, et ça permet de faire ce qu'on veut avec.
- - Ajouter une page avec le manual de apocalyptech
- - Ajouter une page un peu secrète avec le repo github de zookeeper.
- - Ajouter une page un peu secrète avec le moteur PuzzleScript dedans (mais ça on pourra le faire plus tard)
+ X Expliquer qu'on peut télécharger le .zip, avec le .zzt, et ça permet de faire ce qu'on veut avec.
+ X Ajouter une page avec le manual de apocalyptech
+ X Ajouter une page un peu secrète avec le repo github de zookeeper, sous forme de .zip.
+ X Ajouter une page un peu secrète avec le moteur PuzzleScript dedans (mais ça on pourra le faire plus tard)
  - Le flag doit être TUR-ROX{...}, et non pas THCon21{...}
- - Expliquer comment resetter le jeu et les éditions qu'on a faites dedans. Ou juste ajouter un bouton qui le fait. (Faut vider le local storage, ou un truc du genre). On dira juste "forget this site".
+ X Expliquer comment resetter le jeu et les éditions qu'on a faites dedans. Ou juste ajouter un bouton qui le fait. (Faut vider le local storage, ou un truc du genre). On dira juste "forget this site".
  - Créer la page pour entrer le code et récupérer la solution (comme la 1ère énigme)
  - Dans le .zip de solution, on doit mettre :
-   - le script python qui extrait le PuzzleScript, avec explication de comment l'exécuter (car il faut Pillow).
-   - le PuzzleScript directement.
+   X le script python qui extrait le PuzzleScript, avec explication de comment l'exécuter (car il faut Pillow).
+   X le PuzzleScript directement.
    - et la solution .pdf évidemment.
  - Reprendre le texte de présentation de l'énigme, en y mentionnant le museum of zzt, la THCON, etc. Et après, le lien vers le jeu, youpi.
 
