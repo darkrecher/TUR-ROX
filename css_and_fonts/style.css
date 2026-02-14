@@ -88,3 +88,10 @@ h2 {
   font-size: 1.1em;
 }
 
+img.enigma-icon {
+  height: 1.5em;
+}
+
+span.enigma-link {
+  vertical-align: top;
+}
