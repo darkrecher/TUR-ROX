@@ -26,10 +26,9 @@ Il faut démarrer un serveur web, ça ne fonctionnera pas complètement si vous 
 La méthode ci-dessous indique comment faire avec le serveur intégré dans le langage python, qui est installé sur la plupart des ordinateurs. Vous pouvez utiliser un autre serveur si vous préférez.
 
  - Télécharger ou cloner ce repository.
- - Ouvrez un terminal et placez-vous dans le répertoire du repository
+ - Ouvrez un terminal et placez-vous dans le répertoire du repository.
  - Exécutez la commande `python -m http.server` ou bien `python3 -m http.server` (selon la manière dont votre python est installé).
- - Un message devrait s'afficher, indiquant l'url de votre serveur, ainsi que son numéro de port (par défaut : 8000)
- - Ouvrez un navigateur web et indiquez dans la barre d'adresse `http://localhost:8000/index.html`
-
-
+ - Un message devrait s'afficher, indiquant l'url de votre serveur, ainsi que son numéro de port (par défaut : 8000).
+ - Ouvrez un navigateur web et indiquez dans la barre d'adresse `http://localhost:8000/index.html`.
+ - Pour arrêter le serveur, retournez dans le terminal et appuyez sur la séquence de touches Ctrl-C.
 
